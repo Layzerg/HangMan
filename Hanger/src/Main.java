@@ -1,13 +1,13 @@
 import java.io.*;
 import java.util.*;
-import java.util.Random;
 
 
-public class Main {
+
+public class Main { 
     public static void main(String[] args) {
         System.out.println("Welcome to hanger game!");
         System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-        String text="When Mr. Bilbo Baggins of Bag End announced that he would shortly\n" +
+        String text = "When Mr. Bilbo Baggins of Bag End announced that he would shortly\n" +
                 "be celebrating his eleventy-first birthday with a party of special magnificence, there was much talk and excitement in Hobbiton.\n" +
                 "Bilbo was very rich and very peculiar, and had been the wonder\n" +
                 "of the Shire for sixty years, ever since his remarkable disappearance\n" +
@@ -39,7 +39,7 @@ public class Main {
                 "still in his tweens, as the hobbits called the irresponsible twenties\n" +
                 "between childhood and coming of age at thirty-three.\n" +
                 "Twelve more years passed. Each year the Bagginses had given\n" +
-                "very lively combined birthday-parties at Bag End; but now it was"+
+                "very lively combined birthday-parties at Bag End; but now it was" +
                 "understood that something quite exceptional was being planned for\n" +
                 "that autumn. Bilbo was going to be eleventy-one, 111, a rather curious\n" +
                 "number, and a very respectable age for a hobbit (the Old Took himself\n" +
@@ -79,7 +79,7 @@ public class Main {
                 "Baggins; there was never much to tell of him, till he was drownded.’\n" +
                 "‘Drownded?’ said several voices. They had heard this and other\n" +
                 "darker rumours before, of course; but hobbits have a passion for\n" +
-                "family history, and they were ready to hear it again."+
+                "family history, and they were ready to hear it again." +
                 "‘Well, so they say,’ said the Gaffer. ‘You see: Mr. Drogo, he\n" +
                 "married poor Miss Primula Brandybuck. She was our Mr. Bilbo’s\n" +
                 "first cousin on the mother’s side (her mother being the youngest of\n" +
@@ -148,7 +148,7 @@ public class Main {
                         "| |        \\ \\        | |\n" +
                         ": :         \\ \\       : :  \n" +
                         ". .          `'       . .";
-                ;
+        ;
 
         String head =
                 " ___________.._______\n" +
@@ -223,7 +223,7 @@ public class Main {
                         ": :         \\ \\       : :  \n" +
                         ". .          `'       . .";
         String leftLeg =
-                        " ___________.._______\n" +
+                " ___________.._______\n" +
                         "| .__________))______|\n" +
                         "| | / /      ||\n" +
                         "| |/ /       ||\n" +
@@ -289,14 +289,14 @@ public class Main {
                         "| |          || ||\n" +
                         "| |          || ||\n" +
                         "| |          || ||\n" +
-                        "| |         / | | \n" +
-                        "\"\"\"\"\"\"\"\"\"\"|_`-' `-' |\"\"\"|\n" +
-                        "|\"|\"\"\"\"\"\"\"\\ \\       '\"|\"|\n" +
-                        "| |        \\ \\        | |\n" +
-                        ": :         \\ \\       : :  \n" +
+                        "| |         / | | \\\n" +
+                        "\"\"\"\"\"\"\"\"\"|_`-' `-' |\"\"\"|\n" +
+                        "|\"|\"\"\"\"\"\"\"\\ \\ ||\n" +
+                        "| |        \\ \\        ||\n" +
+                        ": :         \\ \\       ::  \n" +
                         ". .          `'       . .";
         String dead =
-                         " ___________.._______\n" +
+                " ___________.._______\n" +
                         "| .__________))______|\n" +
                         "| | / /      ||\n" +
                         "| |/ /       ||\n" +
@@ -313,110 +313,115 @@ public class Main {
                         "| |          || ||\n" +
                         "| |          || ||\n" +
                         "| |          || ||\n" +
-                        "| |         / | | \n" +
-                        "\"\"\"\"\"\"\"\"\"\"|_`-' `-' |\"\"\"|\n" +
-                        "|\"|\"\"\"\"\"\"\"\\ \\       '\"|\"|\n" +
-                        "| |        \\ \\        | |\n" +
-                        ": :         \\ \\       : :  \n" +
-                        ". .          `'       . .";
+                        "| |         / | | \\ \n" +
+                        "\"\"\"\"\"\" \"\"\"|_`-' `-' |\"\"\"|\n" +
+                        "|\"|\"\"\"\"\"\"\"\\ \\ '\"||\n" +
+                        "| |        \\ \\           ||\n" +
+                        ": :         \\ \\          ::  \n" +
+                        ". .                       . .";
 
-        String [] drawings = new String []{Galgenmännchen, head, body, rightArm, leftArm, leftLeg, hanged, dead};
+        String[] drawings = new String[]{Galgenmännchen, head, body, rightArm, leftArm, leftLeg, hanged, dead};
         String textRed = text.replaceAll("\\n", " ").toLowerCase();
-        String [] arr = textRed.split(" ");
-        ArrayList<String> words = new ArrayList<>();
-        for(int i=0; i<arr.length; i++){
-            String s = arr[i].replaceAll("\\p{P}","");
-            if(s.length()>4 && !words.contains(s) && Character.isAlphabetic(s.charAt(1))){
+        String[] arr = textRed.split(" ");
+
+        for (int i = 0; i < arr.length; i++) {
+            String s = arr[i].replaceAll("\\p{P}", "");
+            if (s.length() > 4 && !words.contains(s) && Character.isAlphabetic(s.charAt(1))) {
                 words.add(s);
             }
         }
-/*
-        // проверяем массив слов
-        for(String s :words){
-            System.out.println(s);
+        boolean game = false;
+
+
+        while (true) {
+            guesses.clear();
+            game=false;
+            gameLoop();
+            preparing();
+
+            while (!game) {
+                String guess = userInput();                     //ввод пользователя
+                while(Character.isWhitespace(guess.charAt(0))||"".equals(guess)){
+                    System.out.println("Don't be shy... ");
+                    guess=userInput();
+                }
+                charFlag = false;
+                char ans = checkForError(guess);                    //проверки ввода пользователя
+                if(charFlag) {
+                     guesses.add(ans);                                   //добавляем в лист попыток
+
+                boolean flag = false;
+                for (int i = 0; i < enigma.length; i++) {
+                    if (enigma[i] == ans) {
+                        flag = true;
+                        for (int j = 0; j < enigma.length; j++) {
+                            if (enigma[j] == ans) {
+                                currentState[j] = ans;                 //если отгдадал, то меняем "_" на отгаданные буквы
+                            }
+                        }
+                        break;
+                    } else {
+                        flag = false;
+                    }
+                }
+                if (flag == true) {
+
+                    if (Arrays.equals(enigma, currentState)) {
+                        System.out.println("You won! Have a nice day");         //победа
+                        status = 0;
+                        game = true;
+  //                      game=gameLoop();
+                    }
+     //               else{System.out.println("Choose wisely your next letter...");}
+
+                    System.out.println();
+                    System.out.println(drawings[status]);
+                    System.out.println();
+                    for (int j = 0; j < enigma.length; j++) {
+                        System.out.print(currentState[j] + " ");
+                    }
+                    System.out.println();
+                    System.out.println("That's right!");                    //отгадал
+                    System.out.print("Your attempts: ");
+                    System.out.print(guesses.toString());
+                    System.out.println();
+                    System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+                } else {
+                    status++;
+                    System.out.println(drawings[status]);
+                    if (status == drawings.length - 1) {
+                        System.out.println("Game over!");                            //проиграл
+                        status = 0;
+                        game = true;
+                        break;
+  //                      game=gameLoop();
+                    }
+                    for (int j = 0; j < enigma.length; j++) {
+                        System.out.print(currentState[j] + " ");
+                    }
+                    System.out.println();
+                    System.out.println("Nope, that's wrong");                    //не отгадал
+                    System.out.println("Choose wisely your next letter...");
+                    System.out.print("Your attempts: ");
+                    System.out.print(guesses.toString());
+                    System.out.println();
+                    System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+                    System.out.println();
+
+                }}
+            }
         }
-*/
-        Random rand  = new Random();
-        //загадываем слово
-        String randomWord = words.get(rand.nextInt(words.size()));
-
-        System.out.println("Time to guess!");
-        char [] enigma = randomWord.toCharArray();              //загаданное слово в массив
-        char [] currentState = new char [enigma.length];        //массив для игрока
-
-        for(int i =0; i<enigma.length;i++){
-            currentState[i]= '_';
-            System.out.print(currentState[i]+" ");              // заполняем массив для игрока
-  //          System.out.print(enigma[i]+" ");
-        }
-        System.out.println();
-
-        while(status!=drawings.length-1 ) {
-
-            String guess = userInput();                          //ввод пользователя
-
-            char ans = checkForError(guess);                    //проверки ввода пользователя
-
-            guesses.add(ans);                                   //добавляем в лист попыток
-
- //           System.out.println(ans);
-            boolean flag = false;
-           for(int i=0; i<enigma.length; i++){
-               if(enigma[i]==ans){
-                   flag = true;
-                   for(int j=0;j<enigma.length;j++){
-                       if(enigma[j]==ans){
-                           currentState[j]=ans;                 //если отгдадал, то меняем "_" на отгаданные буквы
-                       }
-                   }
-                   break;
-                              }
-               else{
-                   flag = false;
-               }
-           }
-           if(flag==true){
-               System.out.println("That's right!");                        //отгадал
-               if(Arrays.equals(enigma, currentState)){
-                   System.out.println("You won! Have a nice day");              //победа
-                   break;
-               }
-               for(int j =0; j<enigma.length;j++){
-                   System.out.print(currentState[j]+" ");
-  //                 System.out.print(enigma[j]+" ");
-               }
-               System.out.println();
-               System.out.println(drawings[status]);
-               System.out.println();
-               System.out.print("Your attempts: ");
-               for (Character c :guesses){
-               System.out.print(c+" ");}
-               System.out.println();
-               System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-           }
-           else {
-               status++;
-               System.out.println(drawings[status]);
-               if (status == drawings.length-1) {
-                   System.out.println("Game over!");                            //проиграл
-                  break;
-               }
-               System.out.println("Nope, that's wrong");                    //не отгадал
-               System.out.print("Your attempts: ");
-               for (Character c :guesses){
-                   System.out.print(c+", ");}
-               System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-               System.out.println();
-
-           }
-        }
-        }
+    }
+    static boolean charFlag;
+    public static char [] currentState;
+    public static char[] enigma;
+    public  static  ArrayList<String> words = new ArrayList<>();
     public static int status = 0;
     public static ArrayList<Character> guesses = new ArrayList<>();
     public static Random rand  = new Random();
     public static String userInput(){
         String input = "";
-        System.out.println("Choose wisely your next letter...");
+
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         try{
             input = br.readLine().toLowerCase();
@@ -427,22 +432,60 @@ public class Main {
     public static char checkForError(String s){
         char res=s.charAt(0);
             if (s.length()>1 ){
+                charFlag=false;
                 System.out.println("You kinda stupid, don't you? Well that's explains your situation. Now you need to choose one letter");
-   //             status += rand.nextInt(1);
-
-            }
+              }
             else if(Character.isDigit(s.charAt(0))){
+                charFlag=false;
                 System.out.println("Letter not the number... Now you need to choose one letter");
-  //              status += rand.nextInt(1);
-            }
+              }
             else if(guesses.contains(res)){
+                charFlag=false;
                 System.out.println("But that's the same letter...");
-  //              status += rand.nextInt(1);
-            }
+             }
+            else if("".equals(s)){
+            System.out.println("Bruuuuh...");
+                    charFlag=false;
+                   }
             else if(Character.isAlphabetic(s.charAt(0))){
                 res= s.charAt(0);
+                charFlag=true;
                 return res;
                             }
             return res;
         }
+        public static boolean gameLoop(){
+            while(true){
+                System.out.println("Do you want to play?! Type: y/n");
+                String s =  userInput();
+                if(s.equals("y")){
+                    return false;
+                }
+                else if(s.equals("n")){
+                    System.exit(0);
+                    return true;
+
+                }
+                else {continue;}
+            }
+
+        }
+        public static void preparing(){
+
+            Random rand = new Random();
+            //загадываем слово
+            String randomWord = words.get(rand.nextInt(words.size()));
+
+            System.out.println("Time to guess!");
+            enigma = randomWord.toCharArray();              //загаданное слово в массив
+            currentState = new char[enigma.length];        //массив для игрока
+
+            for (int i = 0; i < enigma.length; i++) {
+                currentState[i] = '_';
+                System.out.print(currentState[i] + " ");              // заполняем массив для игрока
+            }
+            System.out.println();
+
+        }
+
     }
