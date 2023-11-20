@@ -1,5 +1,5 @@
 public class Drawings {
-     String Galgenmännchen =
+    private final String Galgenmännchen =
             " ___________.._______\n" +
                     "| .__________))______|\n" +
                     "| | / /      ||\n" +
@@ -23,9 +23,9 @@ public class Drawings {
                     "| |        \\ \\        | |\n" +
                     ": :         \\ \\       : :  \n" +
                     ". .          `'       . .";
-    ;
 
-      String head =
+
+    private final String head =
             " ___________.._______\n" +
                     "| .__________))______|\n" +
                     "| | / /      ||\n" +
@@ -49,7 +49,7 @@ public class Drawings {
                     "| |        \\ \\        | |\n" +
                     ": :         \\ \\       : :  \n" +
                     ". .          `'       . .";
-      String rightArm =
+    private final String rightArm =
             " ___________.._______\n" +
                     "| .__________))______|\n" +
                     "| | / /      ||\n" +
@@ -73,7 +73,7 @@ public class Drawings {
                     "| |        \\ \\        | |\n" +
                     ": :         \\ \\       : :  \n" +
                     ". .          `'       . .";
-     String leftArm =
+    private final String leftArm =
             " ___________.._______\n" +
                     "| .__________))______|\n" +
                     "| | / /      ||\n" +
@@ -97,7 +97,7 @@ public class Drawings {
                     "| |        \\ \\        | |\n" +
                     ": :         \\ \\       : :  \n" +
                     ". .          `'       . .";
-     String leftLeg =
+    private final String leftLeg =
             " ___________.._______\n" +
                     "| .__________))______|\n" +
                     "| | / /      ||\n" +
@@ -122,7 +122,7 @@ public class Drawings {
                     ": :         \\ \\       : :  \n" +
                     ". .          `'       . .";
 
-       String body =
+    private final String body =
             " ___________.._______\n" +
                     "| .__________))______|\n" +
                     "| | / /      ||\n" +
@@ -146,7 +146,7 @@ public class Drawings {
                     "| |        \\ \\        | |\n" +
                     ": :         \\ \\       : :  \n" +
                     ". .          `'       . .";
-     String hanged =
+    private final String hanged =
             " ___________.._______\n" +
                     "| .__________))______|\n" +
                     "| | / /      ||\n" +
@@ -170,7 +170,7 @@ public class Drawings {
                     "| |        \\ \\        ||\n" +
                     ": :         \\ \\       ::  \n" +
                     ". .          `'       . .";
-    String dead =
+    private final String dead =
             " ___________.._______\n" +
                     "| .__________))______|\n" +
                     "| | / /      ||\n" +
@@ -194,7 +194,7 @@ public class Drawings {
                     "| |        \\ \\         ||\n" +
                     ": :         \\ \\        ::  \n" +
                     ". .                     . .";
-    String[] drawings = new String[]{Galgenmännchen, head, body, rightArm, leftArm, leftLeg, hanged, dead};
+    private final String[] drawings = new String[]{Galgenmännchen, head, body, rightArm, leftArm, leftLeg, hanged, dead};
 
     public String[] getDrawings() {
         return drawings;
@@ -203,6 +203,7 @@ public class Drawings {
     public Drawings() {
 
     }
+
     public void printDrawing(int status) {
         System.out.println();
         System.out.println(drawings[status]);
