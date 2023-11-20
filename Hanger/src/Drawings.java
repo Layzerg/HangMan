@@ -1,5 +1,5 @@
 public class Drawings {
-    static String Galgenmännchen =
+     String Galgenmännchen =
             " ___________.._______\n" +
                     "| .__________))______|\n" +
                     "| | / /      ||\n" +
@@ -25,7 +25,7 @@ public class Drawings {
                     ". .          `'       . .";
     ;
 
-    static  String head =
+      String head =
             " ___________.._______\n" +
                     "| .__________))______|\n" +
                     "| | / /      ||\n" +
@@ -49,7 +49,7 @@ public class Drawings {
                     "| |        \\ \\        | |\n" +
                     ": :         \\ \\       : :  \n" +
                     ". .          `'       . .";
-    static  String rightArm =
+      String rightArm =
             " ___________.._______\n" +
                     "| .__________))______|\n" +
                     "| | / /      ||\n" +
@@ -73,7 +73,7 @@ public class Drawings {
                     "| |        \\ \\        | |\n" +
                     ": :         \\ \\       : :  \n" +
                     ". .          `'       . .";
-    static String leftArm =
+     String leftArm =
             " ___________.._______\n" +
                     "| .__________))______|\n" +
                     "| | / /      ||\n" +
@@ -97,7 +97,7 @@ public class Drawings {
                     "| |        \\ \\        | |\n" +
                     ": :         \\ \\       : :  \n" +
                     ". .          `'       . .";
-    static String leftLeg =
+     String leftLeg =
             " ___________.._______\n" +
                     "| .__________))______|\n" +
                     "| | / /      ||\n" +
@@ -122,7 +122,7 @@ public class Drawings {
                     ": :         \\ \\       : :  \n" +
                     ". .          `'       . .";
 
-    static   String body =
+       String body =
             " ___________.._______\n" +
                     "| .__________))______|\n" +
                     "| | / /      ||\n" +
@@ -146,7 +146,7 @@ public class Drawings {
                     "| |        \\ \\        | |\n" +
                     ": :         \\ \\       : :  \n" +
                     ". .          `'       . .";
-    static String hanged =
+     String hanged =
             " ___________.._______\n" +
                     "| .__________))______|\n" +
                     "| | / /      ||\n" +
@@ -170,7 +170,7 @@ public class Drawings {
                     "| |        \\ \\        ||\n" +
                     ": :         \\ \\       ::  \n" +
                     ". .          `'       . .";
-  static  String dead =
+    String dead =
             " ___________.._______\n" +
                     "| .__________))______|\n" +
                     "| | / /      ||\n" +
@@ -194,5 +194,19 @@ public class Drawings {
                     "| |        \\ \\         ||\n" +
                     ": :         \\ \\        ::  \n" +
                     ". .                     . .";
-    static String[] drawings = new String[]{Galgenmännchen, head, body, rightArm, leftArm, leftLeg, hanged, dead};
+    String[] drawings = new String[]{Galgenmännchen, head, body, rightArm, leftArm, leftLeg, hanged, dead};
+
+    public String[] getDrawings() {
+        return drawings;
+    }
+
+    public Drawings() {
+
+    }
+    public void printDrawing(int status) {
+        System.out.println();
+        System.out.println(drawings[status]);
+        System.out.println();
+    }
+
 }
