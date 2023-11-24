@@ -5,6 +5,7 @@ import java.util.Random;
 
 public class PreparingTheRiddle {
 
+<<<<<<< HEAD
     private char[] currentState;
     private char[] enigma;
 
@@ -14,6 +15,17 @@ public class PreparingTheRiddle {
 
     public char[][] preparingGame() throws IOException {
         char[][] arrays = new char[2][];
+=======
+    public char[] currentState;
+    public char[] enigma;
+
+    public PreparingTheRiddle(){
+
+    }
+
+    public char [][] preparingGame() throws IOException {
+        char [][] arrays = new char[2][];
+>>>>>>> origin/master
         LordOfTheRings lordOfTheRings = new LordOfTheRings();
         ArrayList<String> words = lordOfTheRings.textPreparing();
         Random rand = new Random();                                             //загадываем слово

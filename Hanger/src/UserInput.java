@@ -5,8 +5,12 @@ import java.util.TreeSet;
 
 public class UserInput {
 
+<<<<<<< HEAD
     public BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
+=======
+    BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+>>>>>>> origin/master
     public UserInput() {
 
     }
@@ -14,11 +18,20 @@ public class UserInput {
     public char userInput(TreeSet<Character> set) {
         char resInput = '0';
         boolean validInput = false;
+<<<<<<< HEAD
         while (!validInput) {
             String input = getUserInput();
             if (!checkInputForError(input, set)) {
                 System.out.println("Try again :)");
             } else {
+=======
+        while(!validInput){
+            String input = getUserInput();
+            if(!checkInputForError(input, set)){
+                System.out.println("Try again :)");
+            }
+            else{
+>>>>>>> origin/master
                 resInput = input.charAt(0);
                 validInput = true;
             }
@@ -26,6 +39,7 @@ public class UserInput {
         return resInput;
     }
 
+<<<<<<< HEAD
     public char userYNInput() {
         char resInput = '0';
         boolean validInput = false;
@@ -34,6 +48,17 @@ public class UserInput {
             if (!checkInputForYN(input)) {
                 System.out.println("Try again :)");
             } else {
+=======
+    public  char userYNInput(){
+        char resInput = '0';
+        boolean validInput = false;
+        while(!validInput){
+            String input = getUserInput();
+            if(!checkInputForYN(input)){
+                System.out.println("Try again :)");
+            }
+            else{
+>>>>>>> origin/master
                 resInput = input.charAt(0);
                 validInput = true;
             }
@@ -42,7 +67,11 @@ public class UserInput {
     }
 
     private boolean checkInputForError(String s, TreeSet<Character> set) {
+<<<<<<< HEAD
         if (s.length() == 0) {
+=======
+        if(s.length() == 0){
+>>>>>>> origin/master
             return false;
         }
         char res = s.charAt(0);
@@ -62,9 +91,14 @@ public class UserInput {
         }
         return approoved;
     }
+<<<<<<< HEAD
 
     private boolean checkInputForYN(String s) {
         if (s.length() == 0) {
+=======
+    private boolean checkInputForYN(String s){
+        if(s.length() == 0){
+>>>>>>> origin/master
             System.out.println("There gotta be some input");
             return false;
         }
@@ -76,7 +110,11 @@ public class UserInput {
         } else if (Character.isDigit(res)) {
             System.out.println("Letter not the number... Now you need to choose one letter");
             return approoved;
+<<<<<<< HEAD
         } else if (!Character.isAlphabetic(s.charAt(0))) {
+=======
+        }  else if (!Character.isAlphabetic(s.charAt(0))) {
+>>>>>>> origin/master
             return approoved;
         } else if (res == 'y' || res == 'n') {
             approoved = true;
@@ -84,12 +122,20 @@ public class UserInput {
         }
         return approoved;
     }
+<<<<<<< HEAD
 
     private String getUserInput() {
         String input = null;
         try {
             input = br.readLine().toLowerCase();
             //         br.close();
+=======
+    private String getUserInput(){
+        String input = null;
+        try {
+            input = br.readLine().toLowerCase();
+   //         br.close();
+>>>>>>> origin/master
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
